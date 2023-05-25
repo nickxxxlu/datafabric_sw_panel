@@ -1,0 +1,86 @@
+{
+  "name": "ifp-rtm-datasource-panel",
+  "version": "0.1.6",
+  "description": "iFactory+ Grafana Switch Panel",
+  "scripts": {
+    "build": "grafana-toolkit plugin:build",
+    "test": "grafana-toolkit plugin:test",
+    "dev": "grafana-toolkit plugin:dev",
+    "watch": "grafana-toolkit plugin:dev --watch",
+    "cspell": "cspell **/*",
+    "pack-dist": "node pack.js",
+    "upload-plugin": "env-cmd -f secret/.env node upload.js",
+    "wise-dev": "yarn run dev && yarn run pack-dist && yarn run upload-plugin",
+    "wise-dev-watch": "watch \"yarn run wise-dev\" src --wait=60",
+    "svgo": "npx svgo --config=svgo.config.js -r -f src",
+    "svgr": "yarn run svgo && npx @svgr/cli -d src/images src/img --typescript && prettier --write src/images",
+    "postinstall": "husky install"
+  },
+  "repository": "github:grafana/simple-react-panel",
+  "author": "Grafana Labs <team@grafana.com> (https://grafana.com)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/grafana/simple-react-panel/issues",
+    "email": "plugins@grafana.com"
+  },
+  "devDependencies": {
+    "@grafana/data": "6.5.2",
+    "@grafana/runtime": "6.5.2",
+    "@grafana/toolkit": "^7.5.3",
+    "@grafana/ui": "6.5.2",
+    "@types/lodash": "^4.14.168",
+    "@types/react": "^17.0.3",
+    "@types/resize-observer-browser": "^0.1.7",
+    "@types/uuid": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "babel-eslint": "^10.1.0",
+    "cspell": "^5.3.12",
+    "emotion": "^10.0.27",
+    "env-cmd": "^10.1.0",
+    "eslint": "^7.24.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.7.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "fs-extra": "^9.1.0",
+    "husky": "^6.0.0",
+    "import-sort-style-module": "^6.0.0",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "prettier-plugin-import-sort": "^0.0.6",
+    "puppeteer": "^8.0.0",
+    "svgo": "^2.3.0",
+    "watch": "^1.0.2",
+    "zip-a-folder": "^1.0.1"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "react": "^17.0.2",
+    "tslib": "^2.2.0",
+    "uuid": "^8.3.2"
+  },
+  "importSort": {
+    ".js, .jsx, .ts, .tsx": {
+      "style": "module",
+      "parser": "typescript"
+    }
+  },
+  "lint-staged": {
+    "*": "cspell",
+    "*.{html,css,scss,json}": "prettier --write",
+    "*.{js,jsx,ts,tsx}": [
+      "eslint",
+      "prettier --check"
+    ]
+  }
+}

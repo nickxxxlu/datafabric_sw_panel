@@ -1,0 +1,13 @@
+$spacing-xs: 4px; // 0.25rem
+$spacing-s: 8px; // 0.5rem
+$spacing-m: 12px; // 0.75rem
+$spacing-l: 24px; // 1.5rem
+$spacing-xl: 48px; // 3rem
+
+:export {
+  spacingXs: $spacing-xs;
+  spacingS: $spacing-s;
+  spacingM: $spacing-m;
+  spacingL: $spacing-l;
+  spacingXl: $spacing-xl;
+}

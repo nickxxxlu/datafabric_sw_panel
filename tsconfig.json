@@ -1,0 +1,10 @@
+{
+  "extends": "./node_modules/@grafana/toolkit/src/config/tsconfig.plugin.json",
+  "include": ["src"],
+  "compilerOptions": {
+    "rootDir": "./src",
+    "typeRoots": ["./node_modules/@types"],
+    "lib": ["DOM"]
+  },
+  "types": ["resize-observer-browser"]
+}
